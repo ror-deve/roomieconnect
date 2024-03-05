@@ -1,0 +1,28 @@
+
+# my database.yml
+development:
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  database: roomiconnect_development
+  username: postgres
+  password: postgres
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  database: roomiconnect_test
+  username: postgres
+  password: postgres
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: roomiconnect_production
+  pool: 5
+  host: localhost
+  username: postgres
+  password: postgres

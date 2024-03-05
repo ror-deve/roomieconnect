@@ -1,0 +1,18 @@
+databases:
+  - name: postgres
+    databaseName: roomiconnect_production
+    user: postgres
+
+services:
+  - type: web
+    name: postgres
+    runtime: Ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"  
+    envVars:
+      - key: postgres
+        fromDatabase:
+          name: postgres
+          property: connectionString
+      - key: secret_key_base
+        sync: false
